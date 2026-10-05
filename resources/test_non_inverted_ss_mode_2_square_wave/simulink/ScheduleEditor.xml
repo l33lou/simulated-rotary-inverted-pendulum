@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sltp_editor version="1.1" packageUris="http://schema.mathworks.com/mf0/DiagramEditor/R2019a_20181107 http://schema.mathworks.com/mf0/SltpSyntax/R2021b_202101212121">
+  <diagram.editor.model.Diagram type="diagram.editor.model.Diagram" uuid="6b1e723f-48ec-40a8-8ac1-82cea705e4e3">
+    <entities type="diagram.editor.model.Entity" uuid="a414e6b6-d549-4b41-80cd-f3297cb37ece">
+      <position>0,0</position>
+      <size>0,0,0,0</size>
+      <syntaxElement type="sltp.mm.syntax.Node" uuid="4e7bf64b-281c-4d29-80d8-6ca1319219b1"/>
+      <title>Cont</title>
+      <type>base</type>
+      <subDiagram type="diagram.editor.model.Diagram" uuid="13aa7e11-1657-4c39-982a-868d0a3399a8">
+        <position>0,0</position>
+        <syntaxElement type="sltp.mm.syntax.Graph" uuid="9e5172d7-da93-498b-b437-5df562ed0db5"/>
+        <title>Cont</title>
+        <type>graph.Graph</type>
+      </subDiagram>
+    </entities>
+    <syntaxElement type="sltp.mm.syntax.Graph" uuid="d6b6d294-95c4-4570-8f87-7dca23251866"/>
+    <title>Default</title>
+    <type>graph.Graph</type>
+  </diagram.editor.model.Diagram>
+  <sltp.mm.syntax.Context type="sltp.mm.syntax.Context" uuid="e9e8c7c7-90bd-44bf-8abc-b2310b8857fc">
+    <rootGraph type="sltp.mm.syntax.Graph" uuid="d6b6d294-95c4-4570-8f87-7dca23251866">
+      <children type="sltp.mm.syntax.Node" uuid="4e7bf64b-281c-4d29-80d8-6ca1319219b1">
+        <priority>40</priority>
+        <rates type="sltp.mm.syntax.RateData">
+          <color>#000000</color>
+          <hasBlocks>true</hasBlocks>
+          <rate>0</rate>
+          <title>Cont</title>
+        </rates>
+        <rates type="sltp.mm.syntax.RateData">
+          <color>#e60000</color>
+          <hasBlocks>true</hasBlocks>
+          <rate>0.002</rate>
+          <title>D1</title>
+        </rates>
+        <title>Cont</title>
+        <type>base</type>
+        <diagramElement type="diagram.editor.model.Entity" uuid="a414e6b6-d549-4b41-80cd-f3297cb37ece"/>
+        <subgraph type="sltp.mm.syntax.Graph" uuid="9e5172d7-da93-498b-b437-5df562ed0db5">
+          <priorityDirection>HighNumberFirst</priorityDirection>
+          <title>Cont</title>
+          <diagramElement type="diagram.editor.model.Diagram" uuid="13aa7e11-1657-4c39-982a-868d0a3399a8"/>
+        </subgraph>
+      </children>
+      <priorityDirection>HighNumberFirst</priorityDirection>
+      <title>Default</title>
+      <diagramElement type="diagram.editor.model.Diagram" uuid="6b1e723f-48ec-40a8-8ac1-82cea705e4e3"/>
+    </rootGraph>
+  </sltp.mm.syntax.Context>
+</sltp_editor>

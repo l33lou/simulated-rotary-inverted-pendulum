@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[630, 224, 1205, 837]</P>
+  <P Name="SystemRect">[0.000000, 0.000000, 0.000000, 0.000000]</P>
+  <P Name="SetExecutionDomain">off</P>
+  <P Name="ExecutionDomainType">Deduce</P>
+  <P Name="SimulinkSubDomain">Simulink</P>
+  <Block BlockType="Inport" Name="arm enc" SID="231">
+    <P Name="Position">[25, 43, 55, 57]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="pen enc" SID="232">
+    <P Name="Position">[25, 138, 55, 152]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Gain" Name="Arm: counts to rad" SID="233">
+    <P Name="Position">[80, 26, 160, 74]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Gain">-2*pi/512/4</P>
+  </Block>
+  <Block BlockType="Bias" Name="Bias" SID="234">
+    <P Name="Position">[270, 140, 310, 170]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="Bias">-pi</P>
+    <P Name="SaturateOnIntegerOverflow">off</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant1" SID="235">
+    <P Name="Position">[160, 165, 190, 195]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Value">2*pi</P>
+  </Block>
+  <Block BlockType="Math" Name="Math&#xA;Function" SID="236">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[215, 137, 245, 168]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="Operator">mod</P>
+    <P Name="SignedPower">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Pendulum: &#xA;counts to rad" SID="237">
+    <P Name="Position">[80, 122, 160, 168]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="Gain">2*pi/512/4</P>
+  </Block>
+  <Block BlockType="Outport" Name="theta (rad)" SID="238">
+    <P Name="Position">[355, 43, 385, 57]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Block BlockType="Outport" Name="alpha (rad)" SID="239">
+    <P Name="Position">[355, 148, 385, 162]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="Port">2</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">232#out:1</P>
+    <P Name="Dst">237#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">231#out:1</P>
+    <P Name="Dst">233#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">236#out:1</P>
+    <P Name="Dst">234#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">235#out:1</P>
+    <P Name="Points">[5, 0]</P>
+    <P Name="Dst">236#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">237#out:1</P>
+    <P Name="Dst">236#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">233#out:1</P>
+    <P Name="Dst">238#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">234#out:1</P>
+    <P Name="Dst">239#in:1</P>
+  </Line>
+</System>

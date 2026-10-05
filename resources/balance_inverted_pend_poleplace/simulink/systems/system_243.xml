@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[26, 0, 1237, 546]</P>
+  <P Name="SystemRect">[0.000000, 0.000000, 0.000000, 0.000000]</P>
+  <P Name="SetExecutionDomain">off</P>
+  <P Name="ExecutionDomainType">Deduce</P>
+  <P Name="SimulinkSubDomain">Simulink</P>
+  <Block BlockType="Inport" Name="theta" SID="244">
+    <P Name="Position">[65, 73, 95, 87]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="alpha" SID="245">
+    <P Name="Position">[65, 98, 95, 112]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="246">
+    <P Name="Ports">[4, 1]</P>
+    <P Name="Position">[235, 67, 245, 168]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="ShowName">off</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="alpha_dot" SID="247">
+    <P Name="Position">[135, 167, 195, 203]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="Numerator">[50 0]</P>
+    <P Name="Denominator">[1 50]</P>
+  </Block>
+  <Block BlockType="TransferFcn" Name="theta_dot" SID="248">
+    <P Name="Position">[135, 112, 195, 148]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Numerator">[50 0]</P>
+    <P Name="Denominator">[1 50]</P>
+  </Block>
+  <Block BlockType="Outport" Name="X" SID="249">
+    <P Name="Position">[295, 113, 325, 127]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">248#out:1</P>
+    <P Name="Dst">246#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">247#out:1</P>
+    <P Name="Points">[5, 0; 0, -30]</P>
+    <P Name="Dst">246#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">245#out:1</P>
+    <P Name="Points">[10, 0]</P>
+    <Branch>
+      <P Name="ZOrder">4</P>
+      <P Name="Dst">246#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Points">[0, 80]</P>
+      <P Name="Dst">247#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">246#out:1</P>
+    <P Name="Dst">249#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">244#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <Branch>
+      <P Name="ZOrder">8</P>
+      <P Name="Dst">246#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Dst">248#in:1</P>
+    </Branch>
+  </Line>
+  <Annotation SID="250">
+    <P Name="Name">X = [theta, alpha, theta_dot, alpha_dot]</P>
+    <P Name="Position">[158, 44, 332, 58]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+</System>

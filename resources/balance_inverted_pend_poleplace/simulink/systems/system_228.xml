@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[26, 0, 1237, 546]</P>
+  <P Name="SystemRect">[0.000000, 0.000000, 0.000000, 0.000000]</P>
+  <P Name="SetExecutionDomain">off</P>
+  <P Name="ExecutionDomainType">Deduce</P>
+  <P Name="SimulinkSubDomain">Simulink</P>
+  <Block BlockType="Inport" Name="u (V)" SID="229">
+    <P Name="Position">[-40, 48, -10, 62]</P>
+    <P Name="ZOrder">1</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Counts to Angles" SID="230">
+    <P Name="Ports">[2, 2]</P>
+    <P Name="Position">[325, 24, 430, 86]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <System Ref="system_230"/>
+  </Block>
+  <Block BlockType="Gain" Name="For +ve&#xA;CCW" SID="240">
+    <P Name="Position">[25, 40, 55, 70]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="Gain">-1</P>
+  </Block>
+  <Block BlockType="Reference" Name="HIL Read Encoder&#xA;Timebase" SID="241">
+    <P Name="Ports">[0, 2]</P>
+    <P Name="Position">[205, 24, 290, 86]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="AttributesFormatString">(%&lt;object_name&gt;)</P>
+    <P Name="LibraryVersion">1.2208</P>
+    <P Name="UserDataPersistent">on</P>
+    <P Name="UserData" Ref="bdmxdata:UserData_241"/>
+    <P Name="SourceBlock">quarc_library/Data Acquisition/Generic/Timebases/HIL Read Encoder
+Timebase</P>
+    <P Name="SourceType">HIL Read Encoder Timebase</P>
+    <P Name="SourceProductName">QUARC Targets</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="object_name">HIL-1</P>
+      <P Name="clock">0</P>
+      <P Name="channels">[0:1]</P>
+      <P Name="active">on</P>
+      <P Name="vector_output">off</P>
+      <P Name="data_type_mode">Inherit via back propagation</P>
+      <P Name="data_type">double</P>
+      <P Name="overflow_mode">Error on overflow</P>
+      <P Name="samples_in_buffer">max(ceil(1/qc_get_step_size), 1)</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="HIL Write Analog" SID="242">
+    <P Name="Ports">[1]</P>
+    <P Name="Position">[80, 24, 165, 86]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="AttributesFormatString">(%&lt;object_name&gt;)</P>
+    <P Name="LibraryVersion">1.2208</P>
+    <P Name="UserDataPersistent">on</P>
+    <P Name="UserData" Ref="bdmxdata:UserData_242"/>
+    <P Name="SourceBlock">quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Write Analog</P>
+    <P Name="SourceType">HIL Write Analog</P>
+    <P Name="SourceProductName">QUARC Targets</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="object_name">HIL-1</P>
+      <P Name="channels">0</P>
+      <P Name="sample_time">-1</P>
+      <P Name="active">off</P>
+      <P Name="vector_input">off</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="SubSystem" Name="State X" SID="243">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[475, 24, 540, 86]</P>
+    <P Name="ZOrder">-18</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <System Ref="system_243"/>
+  </Block>
+  <Block BlockType="Outport" Name="X" SID="251">
+    <P Name="Position">[585, 48, 615, 62]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="VectorParamsAs1DForOutWhenUnconnected">off</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">229#out:1</P>
+    <P Name="Dst">240#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">241#out:2</P>
+    <P Name="Dst">230#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">240#out:1</P>
+    <P Name="Dst">242#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">241#out:1</P>
+    <P Name="Dst">230#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">230#out:2</P>
+    <P Name="Dst">243#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">230#out:1</P>
+    <P Name="Dst">243#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">243#out:1</P>
+    <P Name="Dst">251#in:1</P>
+  </Line>
+</System>

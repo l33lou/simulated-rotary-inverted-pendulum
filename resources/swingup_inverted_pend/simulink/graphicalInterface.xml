@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GraphicalInterface>
+  <P Name="NumRootInports">0</P>
+  <P Name="NumRootOutports">0</P>
+  <P Name="ParameterArgumentNames"/>
+  <P Name="NumModelReferences">0</P>
+  <P Name="NumTestPointedSignals">0</P>
+  <P Name="NumProvidedFunctions">0</P>
+  <P Name="NumRequiredFunctions">0</P>
+  <P Name="NumResetEvents">0</P>
+  <P Name="HasInitializeEvent">0</P>
+  <P Name="HasTerminateEvent">0</P>
+  <P Name="NumDataStoreReferences">0</P>
+  <P Name="PreCompExecutionDomainType">Unset</P>
+  <P Name="UseModelRefSolver">0</P>
+  <P Name="SolverName">ode1</P>
+  <P Name="IsExportFunctionModel">0</P>
+  <P Name="SimulinkSubDomainType">Simulink</P>
+  <P Name="NumParameterArguments">0</P>
+  <P Name="NumExternalFileReferences">10</P>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Degrees to
+Radians</P>
+    <P Name="Path">$bdroot/Degrees to Radians</P>
+    <P Name="SID">228</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Logic and Bit
+Operations/Compare
+To Constant</P>
+    <P Name="Path">$bdroot/Enable Balance Control</P>
+    <P Name="SID">6</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Math
+Operations/Slider
+Gain</P>
+    <P Name="Path">$bdroot/Er</P>
+    <P Name="SID">195</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">quarc_library/Data Acquisition/Generic/Configuration/HIL Initialize</P>
+    <P Name="Path">$bdroot/HIL Initialize</P>
+    <P Name="SID">116</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">quarc_library/Data Acquisition/Generic/Timebases/HIL Read Encoder
+Timebase</P>
+    <P Name="Path">$bdroot/HIL Read Encoder Timebase</P>
+    <P Name="SID">117</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Write Analog</P>
+    <P Name="Path">$bdroot/HIL Write Analog</P>
+    <P Name="SID">107</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/Radians to Degrees</P>
+    <P Name="SID">189</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink_extras/Transformations/Radians
+to Degrees</P>
+    <P Name="Path">$bdroot/Radians to Degrees1</P>
+    <P Name="SID">190</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Discontinuities/Saturation
+Dynamic</P>
+    <P Name="Path">$bdroot/Swing-Up Control/Energy-Based Swing-Up Control/User Specified Acceleration Limit</P>
+    <P Name="SID">85</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">simulink/Math
+Operations/Slider
+Gain</P>
+    <P Name="Path">$bdroot/mu</P>
+    <P Name="SID">53</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <P Name="OrderedModelArguments">1</P>
+</GraphicalInterface>

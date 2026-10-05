@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[793, 391, 1497, 1019]</P>
+  <Block BlockType="Inport" Name="alpha (rad)" SID="71">
+    <P Name="Position">[35, 73, 65, 87]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="alpha_dot (rad/s)" SID="72">
+    <P Name="Position">[120, 163, 150, 177]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="73">
+    <P Name="Position">[160, 90, 190, 120]</P>
+    <P Name="ZOrder">-3</P>
+  </Block>
+  <Block BlockType="Sum" Name="Energy" SID="74">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[430, 127, 455, 183]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Pend Inertia&#xA;(kg.m^2)" SID="75">
+    <P Name="Position">[285, 151, 350, 189]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Gain">Jp/2</P>
+  </Block>
+  <Block BlockType="Gain" Name="Pend Torque&#xA;(N.m)" SID="76">
+    <P Name="Position">[275, 71, 350, 119]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="Gain">Mp*g*Lp/2</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="77">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[215, 67, 235, 118]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="ShowName">off</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">-+</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Math" Name="alpha_dot^2" SID="78">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[205, 155, 235, 185]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="Operator">square</P>
+    <P Name="SignedPower">on</P>
+  </Block>
+  <Block BlockType="Trigonometry" Name="cos(alpha)" SID="79">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[105, 65, 135, 95]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="Operator">cos</P>
+  </Block>
+  <Block BlockType="Outport" Name="E (J)" SID="80">
+    <P Name="Position">[505, 148, 535, 162]</P>
+    <P Name="ZOrder">-10</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">73#out:1</P>
+    <P Name="Dst">77#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">75#out:1</P>
+    <P Name="Dst">74#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">77#out:1</P>
+    <P Name="Dst">76#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">78#out:1</P>
+    <P Name="Dst">75#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">76#out:1</P>
+    <P Name="Points">[60, 0]</P>
+    <P Name="Dst">74#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">71#out:1</P>
+    <P Name="Dst">79#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">72#out:1</P>
+    <P Name="Dst">78#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">74#out:1</P>
+    <P Name="Dst">80#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">79#out:1</P>
+    <P Name="Dst">77#in:1</P>
+  </Line>
+  <Annotation SID="220">
+    <P Name="Name">Kinetic Energy</P>
+    <P Name="Position">[345, 176, 411, 191]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+  <Annotation SID="221">
+    <P Name="Name">Potential Energy</P>
+    <P Name="Position">[345, 76, 420, 91]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-2</P>
+  </Annotation>
+</System>

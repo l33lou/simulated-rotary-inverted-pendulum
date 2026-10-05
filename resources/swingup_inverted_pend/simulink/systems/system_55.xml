@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[16, 52, 1274, 1026]</P>
+  <Block BlockType="Inport" Name="alpha_f (rad)" SID="56">
+    <P Name="Position">[65, 73, 95, 87]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="alpha_dot (rad/s)" SID="57">
+    <P Name="Position">[65, 43, 95, 57]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="mu (m/s/J)" SID="58">
+    <P Name="Position">[65, 103, 95, 117]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Inport" Name="Er (mJ)" SID="193">
+    <P Name="Position">[65, 163, 95, 177]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="Port">4</P>
+  </Block>
+  <Block BlockType="Inport" Name="u_max (m/s^2)" SID="59">
+    <P Name="Position">[65, 133, 95, 147]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Port">5</P>
+  </Block>
+  <Block BlockType="Gain" Name="Acceleration to Torque" SID="60">
+    <P Name="Position">[355, 129, 415, 171]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="Gain">Mr*Lr</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Energy-Based Swing-Up Control" SID="62">
+    <PortCounts in="5" out="2"/>
+    <P Name="Position">[200, 32, 310, 188]</P>
+    <P Name="ZOrder">-7</P>
+    <System Ref="system_62"/>
+  </Block>
+  <Block BlockType="Gain" Name="J to mJ" SID="198">
+    <P Name="Position">[340, 55, 370, 85]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="Gain">1000</P>
+  </Block>
+  <Block BlockType="Gain" Name="Torque to Voltage" SID="102">
+    <P Name="Position">[460, 132, 520, 168]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="Gain">Rm/kt</P>
+  </Block>
+  <Block BlockType="Gain" Name="mJ to J" SID="197">
+    <P Name="Position">[130, 155, 160, 185]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="Gain">0.001</P>
+  </Block>
+  <Block BlockType="Outport" Name="E (mJ)" SID="94">
+    <P Name="Position">[400, 63, 430, 77]</P>
+    <P Name="ZOrder">-11</P>
+  </Block>
+  <Block BlockType="Outport" Name="u (V)" SID="95">
+    <P Name="Position">[575, 143, 605, 157]</P>
+    <P Name="ZOrder">-12</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">62#out:2</P>
+    <P Name="Dst">60#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">62#out:1</P>
+    <P Name="Dst">198#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">56#out:1</P>
+    <P Name="Dst">62#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">58#out:1</P>
+    <P Name="Dst">62#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">59#out:1</P>
+    <P Name="Dst">62#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">102#out:1</P>
+    <P Name="Dst">95#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">60#out:1</P>
+    <P Name="Dst">102#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">57#out:1</P>
+    <P Name="Dst">62#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">193#out:1</P>
+    <P Name="Dst">197#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">197#out:1</P>
+    <P Name="Dst">62#in:5</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">198#out:1</P>
+    <P Name="Dst">94#in:1</P>
+  </Line>
+</System>

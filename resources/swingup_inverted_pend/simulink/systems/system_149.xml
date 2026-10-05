@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[630, 224, 1205, 837]</P>
+  <Block BlockType="Inport" Name="arm enc" SID="150">
+    <P Name="Position">[25, 43, 55, 57]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="pen enc" SID="151">
+    <P Name="Position">[25, 138, 55, 152]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Gain" Name="Arm: counts to rad" SID="152">
+    <P Name="Position">[80, 26, 160, 74]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Gain">-2*pi/512/4</P>
+  </Block>
+  <Block BlockType="Bias" Name="Bias" SID="153">
+    <P Name="Position">[270, 140, 310, 170]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="Bias">-pi</P>
+    <P Name="SaturateOnIntegerOverflow">off</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant1" SID="154">
+    <P Name="Position">[160, 165, 190, 195]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Value">2*pi</P>
+  </Block>
+  <Block BlockType="Math" Name="Math&#xA;Function" SID="155">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[215, 137, 245, 168]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="Operator">mod</P>
+    <P Name="SignedPower">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Pendulum: &#xA;counts to rad" SID="156">
+    <P Name="Position">[80, 122, 160, 168]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="Gain">2*pi/512/4</P>
+  </Block>
+  <Block BlockType="Outport" Name="alpha_f (rad)" SID="171">
+    <P Name="Position">[355, 103, 385, 117]</P>
+    <P Name="ZOrder">-8</P>
+  </Block>
+  <Block BlockType="Outport" Name="theta (rad)" SID="157">
+    <P Name="Position">[355, 43, 385, 57]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="alpha (rad)" SID="158">
+    <P Name="Position">[355, 148, 385, 162]</P>
+    <P Name="ZOrder">-10</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">151#out:1</P>
+    <P Name="Dst">156#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">150#out:1</P>
+    <P Name="Dst">152#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">155#out:1</P>
+    <P Name="Dst">153#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">154#out:1</P>
+    <P Name="Points">[5, 0]</P>
+    <P Name="Dst">155#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">156#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Dst">155#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">7</P>
+      <P Name="Points">[0, -35]</P>
+      <P Name="Dst">171#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">152#out:1</P>
+    <P Name="Dst">157#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">153#out:1</P>
+    <P Name="Dst">158#in:1</P>
+  </Line>
+</System>

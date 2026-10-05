@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[16, 52, 1274, 1026]</P>
+  <Block BlockType="Inport" Name="a_dot (rad/s)" SID="63">
+    <P Name="Position">[30, 138, 60, 152]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="a_f (rad)" SID="64">
+    <P Name="Position">[25, 83, 55, 97]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="mu (m/s/J)" SID="65">
+    <P Name="Position">[635, 143, 665, 157]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Inport" Name="u_max (m/s^2)" SID="66">
+    <P Name="Position">[700, 113, 730, 127]</P>
+    <P Name="ZOrder">-4</P>
+    <P Name="Port">4</P>
+  </Block>
+  <Block BlockType="Inport" Name="Er (J)" SID="192">
+    <P Name="Position">[440, 148, 470, 162]</P>
+    <P Name="ZOrder">-5</P>
+    <P Name="Port">5</P>
+  </Block>
+  <Block BlockType="Product" Name="(E-Er)*sign(a_dot*cos(a))" SID="67">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[610, 172, 640, 223]</P>
+    <P Name="ZOrder">-6</P>
+    <P Name="RndMeth">Zero</P>
+  </Block>
+  <Block BlockType="Sum" Name="E-Er" SID="68">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[510, 103, 535, 172]</P>
+    <P Name="ZOrder">-7</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">+-</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Pendulum Energy" SID="70">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[275, 64, 385, 171]</P>
+    <P Name="ZOrder">-8</P>
+    <System Ref="system_70"/>
+  </Block>
+  <Block BlockType="Product" Name="Product" SID="81">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[705, 177, 735, 208]</P>
+    <P Name="ZOrder">-9</P>
+    <P Name="RndMeth">Zero</P>
+  </Block>
+  <Block BlockType="Signum" Name="Sign" SID="83">
+    <P Name="Position">[310, 195, 340, 225]</P>
+    <P Name="ZOrder">-10</P>
+  </Block>
+  <Block BlockType="UnaryMinus" Name="Unary Minus" SID="84">
+    <P Name="Position">[795, 200, 825, 230]</P>
+    <P Name="ZOrder">-11</P>
+  </Block>
+  <Block BlockType="Reference" Name="User Specified&#xA;Acceleration Limit" SID="85">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[860, 161, 905, 229]</P>
+    <P Name="ZOrder">-12</P>
+    <P Name="LibraryVersion">6.1</P>
+    <P Name="SourceBlock">simulink/Discontinuities/Saturation
+Dynamic</P>
+    <P Name="SourceType">Saturation Dynamic</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">off</P>
+      <P Name="OutMin">[]</P>
+      <P Name="OutMax">[]</P>
+      <P Name="OutDataTypeStr">Inherit: Same as second input</P>
+      <P Name="OutputDataTypeScalingMode">Same as second input</P>
+      <P Name="OutDataType">fixdt(1, 16)</P>
+      <P Name="OutScaling">2^-10</P>
+      <P Name="LockScale">off</P>
+      <P Name="RndMeth">Floor</P>
+      <P Name="DoSatur">off</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Product" Name="alpha_dot*cos(alpha)" SID="86">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[230, 192, 260, 223]</P>
+    <P Name="ZOrder">-13</P>
+    <P Name="RndMeth">Zero</P>
+  </Block>
+  <Block BlockType="Trigonometry" Name="cos(alpha)" SID="87">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[140, 165, 170, 195]</P>
+    <P Name="ZOrder">-14</P>
+    <P Name="Operator">cos</P>
+  </Block>
+  <Block BlockType="Outport" Name="E (J)" SID="88">
+    <P Name="Position">[455, 63, 485, 77]</P>
+    <P Name="ZOrder">-15</P>
+  </Block>
+  <Block BlockType="Outport" Name="u (m/s^2)" SID="89">
+    <P Name="Position">[975, 188, 1005, 202]</P>
+    <P Name="ZOrder">-16</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">86#out:1</P>
+    <P Name="Dst">83#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">83#out:1</P>
+    <P Name="Dst">67#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">87#out:1</P>
+    <P Name="Points">[25, 0; 0, 20]</P>
+    <P Name="Dst">86#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">64#out:1</P>
+    <P Name="Points">[65, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Dst">87#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Dst">70#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">68#out:1</P>
+    <P Name="Points">[35, 0; 0, 45]</P>
+    <P Name="Dst">67#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">70#out:1</P>
+    <P Name="Points">[45, 0]</P>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Points">[0, -50]</P>
+      <P Name="Dst">88#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">10</P>
+      <P Name="Dst">68#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">63#out:1</P>
+    <P Name="Points">[30, 0]</P>
+    <Branch>
+      <P Name="ZOrder">12</P>
+      <P Name="Points">[0, 70]</P>
+      <P Name="Dst">86#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">13</P>
+      <P Name="Labels">[0, 0]</P>
+      <P Name="Dst">70#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">14</P>
+    <P Name="Src">67#out:1</P>
+    <P Name="Dst">81#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">15</P>
+    <P Name="Src">192#out:1</P>
+    <P Name="Dst">68#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">16</P>
+    <P Name="Src">65#out:1</P>
+    <P Name="Points">[15, 0; 0, 35]</P>
+    <P Name="Dst">81#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">17</P>
+    <P Name="Src">81#out:1</P>
+    <P Name="Dst">85#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">18</P>
+    <P Name="Src">66#out:1</P>
+    <P Name="Points">[35, 0; 0, 55]</P>
+    <Branch>
+      <P Name="ZOrder">19</P>
+      <P Name="Dst">85#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">20</P>
+      <P Name="Points">[0, 40]</P>
+      <P Name="Dst">84#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">21</P>
+    <P Name="Src">84#out:1</P>
+    <P Name="Dst">85#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">22</P>
+    <P Name="Src">85#out:1</P>
+    <P Name="Dst">89#in:1</P>
+  </Line>
+  <Annotation SID="222">
+    <P Name="Name">Energy-Based Swing-Up Control</P>
+    <P Name="Position">[20, 11, 207, 27]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="FontName">Arial</P>
+    <P Name="FontSize">12</P>
+    <P Name="FontWeight">bold</P>
+  </Annotation>
+  <Annotation SID="223">
+    <P Name="Name">LInear Acceleration of 
+Pendulum Pivot</P>
+    <P Name="Position">[946, 153, 1047, 181]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-2</P>
+  </Annotation>
+  <Annotation SID="224">
+    <P Name="Name">Reference Energy</P>
+    <P Name="Position">[413, 129, 495, 144]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-3</P>
+  </Annotation>
+</System>
